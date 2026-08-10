@@ -308,7 +308,6 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            // Gamification Bar
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               decoration: BoxDecoration(
@@ -347,8 +346,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(height: 24),
-
-            // Main Progress Card
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(24),
@@ -406,8 +403,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(height: 30),
-
-            // Quick Add Section
             Align(
               alignment: Alignment.centerLeft,
               child: Text(_t('quick_add'), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
@@ -433,8 +428,6 @@ class _HomeScreenState extends State<HomeScreen> {
               label: Text(_t('custom'), style: const TextStyle(fontSize: 16, color: Colors.white)),
             ),
             const SizedBox(height: 30),
-
-            // Badges Section
             Align(
               alignment: Alignment.centerLeft,
               child: Text(_t('badges'), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
@@ -553,8 +546,6 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Text(_t('settings'), style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 20),
-
-                // Languages Dropdown
                 const Text('Language / اللغة', style: TextStyle(color: Colors.white60)),
                 const SizedBox(height: 8),
                 DropdownButtonFormField<String>(
@@ -573,8 +564,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   onChanged: (v) => setModalState(() => tempLang = v!),
                 ),
                 const SizedBox(height: 16),
-
-                // Currencies Dropdown
                 const Text('Currency / العملة', style: TextStyle(color: Colors.white60)),
                 const SizedBox(height: 8),
                 DropdownButtonFormField<String>(
@@ -584,3 +573,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     filled: true,
                     fillColor: Colors.white10,
                   ),
+                  items: _currenciesOrdered.map((c) {
+                    return DropdownMenuItem(
+                      value: c,
+                      child: Text(c),
+                    );
+                  }                            
+                    
